@@ -7,12 +7,12 @@ import { NamedTupleMember } from 'typescript';
 
 
 
-const StarRating = ({ActiveStars,NumberOfReviews,InActiveStars}:{ActiveStars:number,InActiveStars:number,NumberOfReviews:number}) => {
+const StarRating = ({ActiveStars,NumberOfReviews,InActiveStars, Color}:{ActiveStars:number,InActiveStars:number,NumberOfReviews:number,Color?:string}) => {
 
 
     const RenderStars = ({Iteration,Element}:{Iteration:number,Element:React.ReactNode})=>{
 
-        const Stars =[]
+        const Stars:React.ReactNode[] =[]
         for (let i = 1; i <= Iteration; i++) {
             Stars.push(Element);
     
@@ -31,7 +31,7 @@ const StarRating = ({ActiveStars,NumberOfReviews,InActiveStars}:{ActiveStars:num
     
 {
 
-RenderStars({Iteration:ActiveStars,Element:<Ionicons name="star" size={12} color="yellow" />})
+RenderStars({Iteration:ActiveStars,Element:<Ionicons name="star" size={12} color={Color?Color:'orange'} />})
 
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "aphrica",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "React Native UI Components by Matthew Msingathi (Coded Design)",
   "main": "src/index.ts",
   "files": [

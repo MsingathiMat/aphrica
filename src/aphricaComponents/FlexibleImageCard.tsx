@@ -14,6 +14,7 @@ const FlexibleImageCard = ({ children }: { children: React.ReactNode }) => {
       style={{
         flex: 1,
         flexDirection: "column",
+        gap:8
      
       }}
     >

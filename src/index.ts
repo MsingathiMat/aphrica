@@ -10,5 +10,6 @@ import FancyAvatar from "./aphricaComponents/FancyAvatar";
 import FooterBar from "./aphricaComponents/FooterBar";
 import RecordAudio from "./aphricaComponents/RecordAudio";
 import ChatBox from "./aphricaComponents/ChatBox";
+import OnBoardingScreen from "./aphricaComponents/OnBoardingScreen";
 
-export {ChatBox,RecordAudio,FooterBar,FancyAvatar,AInput,AButton,HorizontalSplitContainer,AvatarBar,Avatar,IconCard,Showroom,IconLabel}
+export {OnBoardingScreen,ChatBox,RecordAudio,FooterBar,FancyAvatar,AInput,AButton,HorizontalSplitContainer,AvatarBar,Avatar,IconCard,Showroom,IconLabel}
