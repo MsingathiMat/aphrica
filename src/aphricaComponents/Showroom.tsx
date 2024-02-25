@@ -4,7 +4,7 @@ import FlexibleImageCard from './FlexibleImageCard'
 
 import { View, Text, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
-import IconCard from './IconCard'
+
 import { Entypo, MaterialIcons } from '@expo/vector-icons'
 import FancyAvatar from './FancyAvatar'
 import AInput from './AInput'
@@ -70,11 +70,12 @@ const ScreenArray=[
 ]
 
 
-const [Loading,SetIsLoading]=useState(false)
+
 const Showroom = () => {
 
 const [InputText,SetInputText] = useState('')
 const [Active,SetActive] = useState("")
+const [Loading,SetIsLoading]=useState(false)
 
 const [InputValue,SetInputValue] = useState("")
 
@@ -149,12 +150,7 @@ padding:15
               size={15}
               color="orange"
             />} Placeholder='Your Email' BorderColor='orange' InputValue={InputValue} SetInputValue={SetInputValue} />
-<Entypo
-                style={{ position: "absolute", top: 8, left: 0 }}
-                name="lock"
-                size={15}
-                color="white"
-              />
+
 
 
 

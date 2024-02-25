@@ -1,8 +1,8 @@
-import { View, Text, FlatList, NativeSyntheticEvent, NativeScrollEvent,Dimensions } from 'react-native'
+import { View, Text, FlatList, NativeSyntheticEvent, NativeScrollEvent,Dimensions, TouchableOpacity } from 'react-native'
 import React, { useRef, useState } from 'react'
 import OnBoard from './OnBoard';
 import { AntDesign } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 type ScreenProps={
 

@@ -1,7 +1,7 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Audio } from 'expo-av';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 

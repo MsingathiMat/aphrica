@@ -1,10 +1,10 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { Children, cloneElement, isValidElement, useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
 import ColorMixer from "aphrica/src/Helpers/ColorMixer";;
 
 type OriginalProps={SelectedColor?:string,Title:string, Color?:string,BackColor?:string}
@@ -34,7 +34,7 @@ const FilterBar = ({children,BackgroundColor, TextColor, ActiveColor}:{children:
         ClonedChildren.push(child);
       }
 
-   console.log(ClonedChildren)
+  
 
     }else{
 

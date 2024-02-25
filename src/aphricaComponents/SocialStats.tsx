@@ -9,7 +9,7 @@ const SocialStats = ({Views,Likes,Downloads,IconColor,NumbersColor}:{Views:numbe
         gap:5
     }}>
     
-    <Ionicons name="ios-eye" size={15} color={IconColor?IconColor:"orange" }/>
+    <Ionicons name='airplane' size={15} color={IconColor?IconColor:"orange" }/>
     <Text  style={{
     
     color:NumbersColor?NumbersColor:'gray',
