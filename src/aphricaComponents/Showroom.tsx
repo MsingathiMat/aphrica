@@ -5,7 +5,7 @@ import FlexibleImageCard from './FlexibleImageCard'
 import { View, Text, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
 import IconCard from './IconCard'
-import { Entypo } from '@expo/vector-icons'
+import { Entypo, MaterialIcons } from '@expo/vector-icons'
 import FancyAvatar from './FancyAvatar'
 import AInput from './AInput'
 import AButton from './AButton'
@@ -14,39 +14,76 @@ import Avatar from './Avatar'
 import RecordAudio from './RecordAudio'
 import ChatBox from './ChatBox'
 import { AntDesign } from '@expo/vector-icons';
+import LoadingButton from '../aphricaComponents/LoadingButton'
 
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import HangingInput from './HangingInput'
 import OnBoardingScreen from './OnBoardingScreen'
+import FilterBar from 'aphrica/src/aphricaComponents/FilterBar'
+import ModernInput from 'aphrica/src/aphricaComponents/ModernInput'
 
 
 const ScreenArray=[
+  {
+
+    title:"Mark Zuckerberg",
+    description:"Founder, chairman and CEO of Meta",
+    ImageUrl:'https://cdn.britannica.com/99/236599-050-1199AD2C/Mark-Zuckerberg-2019.jpg' 
+  },
 
   {
 
-    title:"User Respect",
-    description:"Listen uninterupted",
-    ImageUrl:"https://images.pexels.com/photos/2272854/pexels-photo-2272854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    title:"Nelson Mandela",
+    description:"Freedom Fighter",
+    ImageUrl:"https://karsh.org/wordpress/wp-content/uploads/2017/06/Yousuf-Karsh-Nelson-Mandela-1990-1523x1960.jpg"
+  },
+
+  {
+
+    title:"Sundar Pichai",
+    description:"Google CEO",
+    ImageUrl:'https://www.arabnews.com/sites/default/files/styles/n_670_395/public/main-image/2020/01/20/1936296-1211052725.jpg?itok=H3TIlQmH'
   },
   {
 
-    title:"No Adverts",
-    description:"Listen uninterupted",
-    ImageUrl:'https://www.forbesindia.com/media/images/2023/Nov/img_223547_cut057markzuckerbergbyguerinblaskforforbes_89171_final_bg.jpg'
+    title:"Muhammad Ali",
+    description:"The Greates",
+    ImageUrl:'https://miro.medium.com/v2/resize:fit:1110/0*SQ5SDyW9ajgHyBxf.jpg'
+  },
+  {
+
+    title:"Matthew Msingathi",
+    description:"Software Developer",
+    ImageUrl:'https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/fJz8YqnaQ0yVkTE8bVCE'
   },
   
+  
+ 
   {
 
-    title:"Contact Me",
-    description:"hlazomatthew@gmail.com / www.matthewmsingathi.co.za",
-    ImageUrl:'https://media.nature.com/lw767/magazine-assets/d41586-024-00394-0/d41586-024-00394-0_26705686.jpg?as=webp' 
+    title:"Trevor Noah",
+    description:"Comedian",
+    ImageUrl:'https://www.princeton.edu/sites/default/files/styles/scale_1440/public/images/2021/04/Trevor-Noah_CAA-Speakers_Photo-Credit-Gavin-Bond.jpg?itok=ilEPaXVg'
   }
+  
 ]
 
+
+const [Loading,SetIsLoading]=useState(false)
 const Showroom = () => {
 
-const [InputText,SetInputText] = useState('12345')
+const [InputText,SetInputText] = useState('')
+const [Active,SetActive] = useState("")
+
+const [InputValue,SetInputValue] = useState("")
+
+  const handleClick = (Title:string)=>{
+
+    SetActive(Title)
+    
+  }
+  
 
   const width = Dimensions.get('screen').width
   return (
@@ -55,7 +92,7 @@ const [InputText,SetInputText] = useState('12345')
 flex:1,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'gray'
+    backgroundColor:'#E4E4E4'
   }}>
 
 
@@ -78,10 +115,12 @@ flexDirection:'column',
 gap:10,
 justifyContent:'center',
 alignContent:'center',
-padding:10,
+
 
 }}>
+<View style={{flex:1, padding:10, justifyContent:'center', alignItems:'center'}}>
 
+  
 <Text style={{
 color:'gray',
 padding:15
@@ -97,6 +136,48 @@ padding:15
 
 
 <AInput Width={180} BackgroundColor='#EBEBEB' PlaceHolder='Your Name'/>
+
+
+<Text style={{
+color:'gray',
+padding:15
+}}>ModernInput</Text>
+
+<ModernInput Icon={<MaterialIcons
+              style={{ position: "absolute", top: 8, left: 0 }}
+              name="email"
+              size={15}
+              color="orange"
+            />} Placeholder='Your Email' BorderColor='orange' InputValue={InputValue} SetInputValue={SetInputValue} />
+<Entypo
+                style={{ position: "absolute", top: 8, left: 0 }}
+                name="lock"
+                size={15}
+                color="white"
+              />
+
+
+
+
+<Text style={{
+color:'gray',
+padding:15
+}}>LoadingButton</Text>
+
+<LoadingButton
+                IsLoading={Loading}
+                OnPress={() => {
+             ()=>{ }
+
+                }}
+                Title="Login"
+                BakcgroundColor="white"
+                BtnColor="#128C7E"
+                IndicatorColor="#128C7E"
+              >
+
+              </LoadingButton>
+
 
 <Text style={{
 color:'gray',
@@ -136,19 +217,22 @@ padding:15
    <FlexibleImageCard >
             <FlexibleImageCard.BoxImageCard
               ImageUri={
-                "https://images.pexels.com/photos/2272854/pexels-photo-2272854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                "https://i.insider.com/593ec35bc4adee1c008b5394?width=1000&format=jpeg&auto=webp"
               }
             />
-            <FlexibleImageCard.SectionTitle Title={"testing title"} />
+            <FlexibleImageCard.SectionTitle Title={"Drew Houston"} />
 
             <FlexibleImageCard.StarRating
               NumberOfReviews={10}
-              ActiveStars={5}
-              InActiveStars={1}
+              ActiveStars={4}
+              InActiveStars={2}
+              RatingDescription="black"
             />
 
             <FlexibleImageCard.SocialStats Views={2} Likes={100} Downloads={20} />
-            <FlexibleImageCard.CardDescription Description={"testing"} />
+            <FlexibleImageCard.CardDescription 
+            
+            Description={"Andrew W. Houston is an American Internet entrepreneur, and the co-founder and CEO of Dropbox, an online backup and storage service. According to Forbes, his net worth is about $2.2 billion. Houston held 24.4 percent voting power in Dropbox before filing for IPO in February 2018 "} />
           </FlexibleImageCard>
 
           
@@ -212,7 +296,29 @@ classical literature, discovered the undoubtable source. Lorem Ipsum comes
 
 <Text style={{
  color:'gray',
- padding:15
+ padding:15,
+ marginTop:100
+}}>FilterBar</Text>
+
+<FilterBar ActiveColor="navy" BackgroundColor="orange" TextColor="white">
+
+
+<FilterBar.FilterButton BackColor="orange" SelectedColor="green" ActiveItem ={Active} OnFilterPress={handleClick} Title="Coding"/>
+
+<FilterBar.FilterButton BackColor="purple" SelectedColor="black" ActiveItem ={Active} OnFilterPress={handleClick} Title="Java"/>
+<FilterBar.FilterButton Color="black" BackColor="gray" SelectedColor="yellow" ActiveItem ={Active} OnFilterPress={handleClick} Title="New to you"/>
+<FilterBar.FilterButton BackColor="orange" SelectedColor="green" ActiveItem ={Active} OnFilterPress={handleClick} Title="HTNL"/>
+
+<FilterBar.FilterButton BackColor="purple" SelectedColor="black" ActiveItem ={Active} OnFilterPress={handleClick} Title="PHP"/>
+<FilterBar.FilterButton Color="black" BackColor="gray" SelectedColor="yellow" ActiveItem ={Active} OnFilterPress={handleClick} Title="SQL"/>
+
+
+</FilterBar>
+</View>
+<Text style={{
+ color:'gray',
+ padding:15,
+ marginTop:100
 }}>OnBoardingScreen</Text>
 
 
@@ -220,7 +326,10 @@ classical literature, discovered the undoubtable source. Lorem Ipsum comes
 
 }}>
 
-<OnBoardingScreen TransitionText='Get started' ScreenArray ={ScreenArray}ImageLocation='ONLINE'/>
+<OnBoardingScreen OnComplete={()=>{alert("Transition to Main Screen")}} TransitionText='Get started' ScreenArray ={ScreenArray}ImageLocation='ONLINE'/>
+
+
+
 
 </View>
 </View>

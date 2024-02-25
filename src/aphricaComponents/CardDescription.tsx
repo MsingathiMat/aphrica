@@ -2,14 +2,15 @@ import { Text } from "react-native";
 import React from "react";
 
 
-const CardDescription = ({ Description }: { Description: string }) => {
+const CardDescription = ({ Description, Color }: { Description: string,Color?:string }) => {
   return (
     <Text
       style={{
-        color: "white",
+        color: Color?Color:'black',
         fontSize: 11,
-        width: 140,
-        marginTop: 10,
+        width: 160,
+        marginTop: 3,
+     
       }}
     >
       {Description}

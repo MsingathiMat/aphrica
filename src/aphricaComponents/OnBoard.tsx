@@ -19,17 +19,23 @@ type ImageLoc ={
   return (
     <View >
 
-<ImageBackground resizeMode="cover" source={ImageLocation=='LOCAL'?require(ScreenInfo.ImageUrl):{uri:ScreenInfo.ImageUrl}} style={{
+<ImageBackground  resizeMode="cover" source={ImageLocation=='LOCAL'?require(ScreenInfo.ImageUrl):{uri:ScreenInfo.ImageUrl}} style={{
 
    height:'100%',
    width:ScreenWidth,
    alignItems:'center',
-   justifyContent:'center'
+   justifyContent:'center',
+   backgroundColor:'black'
 }}>
 
+<View style={{backgroundColor:'rgba(0,0,0,0.6)',  height:'100%',
+   width:ScreenWidth, position:'absolute'}}/>
+<View style={{justifyContent:'center', alignItems:'center', zIndex:5}}>
+  
 <Text style={{color:'white', fontSize:30, fontWeight:'bold',marginBottom:10}}>{ScreenInfo.title}</Text>
 <Text style={{color:'white', fontSize:18, }}>{ScreenInfo.description}</Text>
-     
+    
+  </View> 
     </ImageBackground>    
 
 

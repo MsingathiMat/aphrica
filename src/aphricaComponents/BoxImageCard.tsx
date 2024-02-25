@@ -8,7 +8,8 @@ const BoxImageCard = ({ImageUri}:{ImageUri:string}) => {
 
 width:160,
 height:140,
-borderRadius:10
+borderRadius:10,
+
 
 }}   source={{ uri: ImageUri }}/>
     </View>

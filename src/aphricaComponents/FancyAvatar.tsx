@@ -41,6 +41,7 @@ HasAvatarTitle?
           style={{
             color: "white",
             fontSize: 12,
+        
           }}
         >
           {AvatarTitle}
@@ -80,7 +81,7 @@ HasAvatarTitle?
         />
       </View>
 
-      <Text >{Title}</Text>
+      <Text style={{margin:5, fontSize:11}} >{Title}</Text>
     </View>
   );
 };

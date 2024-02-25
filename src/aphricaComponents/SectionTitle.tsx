@@ -1,12 +1,12 @@
 import { View, Text, TextInput } from "react-native";
 import React from "react";
 
-const SectionTitle = ({ Title }: { Title: string }) => {
+const SectionTitle = ({ Title,Color }: { Title: string,Color?:string }) => {
     return (
       <Text
         style={{
-          color: "white",
-          fontSize: 16,
+          color:Color?Color: "gray",
+          fontSize: 17,
           fontWeight: "bold",
         }}
       >

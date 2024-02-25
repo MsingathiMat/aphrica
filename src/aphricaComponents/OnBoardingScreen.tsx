@@ -11,9 +11,10 @@ type ScreenProps={
     ImageUrl:string 
 }
 
-const OnBoardingScreen = ({ScreenArray,TransitionText,ImageLocation}:{ScreenArray:ScreenProps[],TransitionText:string,ImageLocation:'LOCAL' | 'ONLINE'}) => {
+const OnBoardingScreen = ({OnComplete,ScreenArray,TransitionText,ImageLocation}:{ScreenArray:ScreenProps[],TransitionText:string,ImageLocation:'LOCAL' | 'ONLINE', OnComplete:()=>void}) => {
 
   const ScreenWidth = Dimensions.get('screen').width;
+  const ScreenHeight = Dimensions.get('screen').height;
   const [currentSlide,setCurrentSlide] = useState(0);
   const FlatListRef = useRef<FlatList<ScreenProps> | null>(null);
 
@@ -25,9 +26,8 @@ const OnBoardingScreen = ({ScreenArray,TransitionText,ImageLocation}:{ScreenArra
       FlatListRef.current?.scrollToIndex({ index: newIndex });
     }
 
-    if (currentSlide===ScreenArray.length){
-
-    alert('Route to your main Page')
+    if (currentSlide===ScreenArray.length-1){
+      OnComplete();
     }
   };
 
@@ -38,7 +38,13 @@ const OnBoardingScreen = ({ScreenArray,TransitionText,ImageLocation}:{ScreenArra
     setCurrentSlide((current)=>newIndex);
   }
   return (
-    <View style={{justifyContent:'center', alignItems:'center'}}>
+    <View style={{justifyContent:'center', 
+    
+    alignItems:'center', 
+    
+    width:ScreenWidth,
+    height:ScreenHeight
+    }}>
    
    <FlatList 
    
@@ -80,7 +86,7 @@ style={
  <TouchableOpacity onPress={handleNext}>
 
  <View style={{flexDirection:'row', gap:5, justifyContent:'center', alignItems:'center'}}>
-<Text style={{color:'white', fontSize:20}}>{currentSlide===2?TransitionText:"Next"}</Text>
+<Text style={{color:'white', fontSize:20}}>{currentSlide===ScreenArray.length-1?TransitionText:"Next"}</Text>
   <AntDesign style={{top:2}} name="arrowright" size={24} color="white" />
   </View>
  </TouchableOpacity>
