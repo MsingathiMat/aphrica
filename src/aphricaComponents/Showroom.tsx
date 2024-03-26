@@ -329,7 +329,7 @@ color:'gray',
 padding:15
 }}>AvatarAndDetail</Text>
 
-<AvatarAndDetail LastSeen='12:00' Title="Matthew" ImageUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7La67pwXxpB3SRfeDWGvS_6ZHWA4pWIpmvPnmHotqQZEgDbFIXBWFybdQ_ADy6twwrTIl'/>
+<AvatarAndDetail CallBackFunc={()=>{}} AvatarScale={1} RingScale={1.1} AvatarRing={true} RightComponent={true} width={400}BottomLine='The greatest' LastSeen='12:00' Title="Matthew" ImageUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7La67pwXxpB3SRfeDWGvS_6ZHWA4pWIpmvPnmHotqQZEgDbFIXBWFybdQ_ADy6twwrTIl'/>
 
 </View>
 </View>

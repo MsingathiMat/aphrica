@@ -1,8 +1,5 @@
-import { View, Text, Dimensions, Image } from 'react-native'
+import { View, Text, Dimensions, Image, TouchableOpacity } from 'react-native'
 import React, { ReactNode } from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-
 
 
 type Message = {
@@ -32,15 +29,20 @@ type Contact = {
 interface ContactProps {
   contacts1: Contact[];
 }
-const AvatarAndDetail = ({ LastSeen,width,colorWhite=false,RightComponent=false,RingScale=1,AvatarScale=1,AvatarRing=false ,Icon,ImageUrl,MessageIconShown=false,Title}:{ImageUrl:string,Title:string,MessageIconShown?:boolean,Icon?:ReactNode, AvatarRing?:boolean,RingScale?:number,AvatarScale?:number,RightComponent?:boolean,colorWhite?:boolean,width?:number,LastSeen:string}) => {
 
 
-  const navigation = useNavigation();
+const AvatarAndDetail = ({ItemIndex,CallBackFunc,BottomLine, LastSeen,width,colorWhite=false,RightComponent=false,RingScale=1,AvatarScale=1,AvatarRing=false ,Icon,ImageUrl,MessageIconShown=false,Title}:{ItemIndex?:number,CallBackFunc:(ItemIndex?:number)=>void,BottomLine?:string,ImageUrl:string,Title:string,MessageIconShown?:boolean,Icon?:ReactNode, AvatarRing?:boolean,RingScale?:number,AvatarScale?:number,RightComponent?:boolean,colorWhite?:boolean,width?:number,LastSeen:string}) => {
+  type CallBackFunc = (numb: number) => void;
+
+
+
+
+
   return (
    
-  //   eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error 
-<TouchableOpacity onPress={()=>{navigation.navigate('ChatDetail',{SelectedContactIndex:0})}}>
+ 
+
+<TouchableOpacity onPress={()=>{CallBackFunc(ItemIndex)}}>
 
 <View style={{
   
@@ -49,6 +51,7 @@ const AvatarAndDetail = ({ LastSeen,width,colorWhite=false,RightComponent=false,
   justifyContent:'flex-start',
   alignItems:'center',
   flexDirection:'row',
+
 gap:8,
  
  
@@ -70,6 +73,7 @@ gap:8,
   justifyContent:'center',
   alignItems:'center',
   transform: [{ scale:RingScale}]
+
   }}
  >
 
@@ -116,7 +120,7 @@ width:RightComponent?width?width-78:'auto':'auto'
 {Icon?Icon:''}
 
 <Text style={{fontSize:12,color:colorWhite?'white':'gray'}}>
-  MSG Example </Text>
+ {BottomLine} </Text>
   
 </View>
 
@@ -126,7 +130,6 @@ width:RightComponent?width?width-78:'auto':'auto'
 
 </TouchableOpacity>
   
-     
  
   )
 }

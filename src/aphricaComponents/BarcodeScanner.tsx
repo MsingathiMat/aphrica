@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 
-import {NavigationProp, useNavigation } from '@react-navigation/native';
+import {NavigationProp, useNavigation, useRoute } from '@react-navigation/native';
 
 import { CameraView, Camera } from "expo-camera/next";
 
@@ -15,9 +15,9 @@ export type Navigatable =NavigationProp<ReactNavigation.RootParamList >&{replace
   const [scanned, setScanned] = useState(false);
 
 
-const navigation:Navigatable = useNavigation()
 
-
+const Route = useRoute()
+const navigation = useNavigation()
 
 
 
@@ -33,9 +33,9 @@ useEffect(() => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(false);
    
-
-
-    navigation.navigate('Welcome',{DataToReceive:data});
+  
+/** @ts-ignore */
+    navigation.navigate(Route.params.GotoScreen,{ScannedDigits:data});
   };
 
   if (hasPermission === null) {
@@ -56,6 +56,9 @@ useEffect(() => {
     </View>
   );
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
