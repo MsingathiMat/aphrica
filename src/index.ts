@@ -7,10 +7,14 @@ import HorizontalSplitContainer from "./aphricaComponents/HorizontalSplitContain
 import AButton from "./aphricaComponents/AButton";
 import AInput from "./aphricaComponents/AInput";
 import FancyAvatar from "./aphricaComponents/FancyAvatar";
-import FooterBar from "./aphricaComponents/FooterBar";
+
 import RecordAudio from "./aphricaComponents/RecordAudio";
 import ChatBox from "./aphricaComponents/ChatBox";
 import OnBoardingScreen from "./aphricaComponents/OnBoardingScreen";
 import FilterBar from "./aphricaComponents/FilterBar";
-
-export {FilterBar,OnBoardingScreen,ChatBox,RecordAudio,FooterBar,FancyAvatar,AInput,AButton,HorizontalSplitContainer,AvatarBar,Avatar,IconCard,Showroom,IconLabel}
+import ColorMixer from "./Helpers/ColorMixer";
+import { GenerateRandomDigits } from "./Helpers/GenerateRandomDigits";
+import PickImageFromCamera from "./Helpers/PickImageFromCamera";
+import AvatarAndDetail from "./aphricaComponents/AvatarAndDetail";
+import BarcodeScanner from "./aphricaComponents/BarcodeScanner";
+export {BarcodeScanner,AvatarAndDetail,PickImageFromCamera,GenerateRandomDigits,ColorMixer,FilterBar,OnBoardingScreen,ChatBox,RecordAudio,FancyAvatar,AInput,AButton,HorizontalSplitContainer,AvatarBar,Avatar,IconCard,Showroom,IconLabel}

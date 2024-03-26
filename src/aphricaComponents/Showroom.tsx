@@ -20,9 +20,9 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import HangingInput from './HangingInput'
 import OnBoardingScreen from './OnBoardingScreen'
-import FilterBar from 'aphrica/src/aphricaComponents/FilterBar'
-import ModernInput from 'aphrica/src/aphricaComponents/ModernInput'
-
+import FilterBar from './FilterBar'
+import ModernInput from './ModernInput'
+import AvatarAndDetail from './AvatarAndDetail'
 
 const ScreenArray=[
   {
@@ -324,8 +324,12 @@ classical literature, discovered the undoubtable source. Lorem Ipsum comes
 
 <OnBoardingScreen OnComplete={()=>{alert("Transition to Main Screen")}} TransitionText='Get started' ScreenArray ={ScreenArray}ImageLocation='ONLINE'/>
 
+<Text style={{
+color:'gray',
+padding:15
+}}>AvatarAndDetail</Text>
 
-
+<AvatarAndDetail LastSeen='12:00' Title="Matthew" ImageUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7La67pwXxpB3SRfeDWGvS_6ZHWA4pWIpmvPnmHotqQZEgDbFIXBWFybdQ_ADy6twwrTIl'/>
 
 </View>
 </View>

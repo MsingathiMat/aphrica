@@ -1,10 +1,21 @@
 #!/usr/bin/env node
 
-
-
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+
+const allowedComponents = [
+  'AButton', 
+  'AInput', 
+  'AvatarBar',
+  'BoxImageCard', 
+  'CardDescription', 
+  'ChatBox',
+  'FancyAvatar', 
+  'AInput', 
+  'FilterBa',
+
+]; // Define your allowed component names here
 
 function downloadFile(url, dest) {
   return new Promise((resolve, reject) => {
@@ -22,6 +33,11 @@ function downloadFile(url, dest) {
 }
 
 async function addComponent(componentName) {
+  if (!allowedComponents.includes(componentName)) {
+    console.error(`Error: '${componentName}' is not part of the library.`);
+    return;
+  }
+
   const componentDirectory = path.join(process.cwd(), 'AttlrUi/', componentName);
 
   if (!fs.existsSync(componentDirectory)) {
@@ -33,9 +49,7 @@ async function addComponent(componentName) {
       ];
      
       try {
-
         await downloadFile(githubFiles[0].url, githubFiles[0].dest);
-       
         console.log(`Component '${componentName}' added successfully.`);
       } catch (error) {
         console.error(`Error downloading files: ${error}`);
@@ -46,11 +60,11 @@ async function addComponent(componentName) {
     }
   } else {
     console.log(`Component '${componentName}' already exists.`);
-  }}
+  }
+}
+
 if (process.argv.length < 4 || process.argv[2] !== 'add') {
   console.log('Usage: npx attlr-ui add <componentName>');
 } else {
   addComponent(process.argv[3]);
 }
-
-

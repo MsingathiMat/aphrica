@@ -5,7 +5,7 @@ import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import ColorMixer from "aphrica/src/Helpers/ColorMixer";;
+import ColorMixer from "aphrica/src/Helpers/ColorMixer";
 
 type OriginalProps={SelectedColor?:string,Title:string, Color?:string,BackColor?:string}
 
